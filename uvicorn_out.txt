@@ -1,0 +1,7 @@
+[SyntheticSource] blood banks: 2817 loaded (6 (Repeated) dropped)
+[SyntheticSource] reliability scorer  AUC=0.755  mean(donors)=0.304  mean(non-donors)=0.217
+[SyntheticSource] clinics: 9 generated
+[SyntheticSource] donors: 900 generated
+[SyntheticSource] patients: 200 generated
+[SyntheticSource] bonds: 237 donors bonded to patients
+[SyntheticSource] inventory: 1295 units across 358 banks
