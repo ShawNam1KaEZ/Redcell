@@ -47,6 +47,14 @@ _BOND_BONUS    = 0.40   # deliberately large — Blood Bridge is the key differe
 
 _SEARCH_RADIUS_KM = 100.0
 
+# ---------------------------------------------------------------------------
+# Clock & transport constants (Step 5)
+# ---------------------------------------------------------------------------
+
+_TRANSPORT_LOCAL_KM       = 5.0    # dist ≤ this → tier 0 (local); > this → tier 1 (far)
+_REDISTRIBUTION_SPEED_KMH = 40.0   # road transport speed for inventory redistribution (km/h)
+_DONOR_PIPELINE_DAYS      = 4      # contact + consent + travel + donation + testing (days)
+
 
 # ---------------------------------------------------------------------------
 # Internal helpers
@@ -70,6 +78,16 @@ def _parse_antigen(antibody: str) -> Optional[str]:
         ag = antibody[5:]
         return ag if ag in _ANTIGEN_ATTRS else None
     return None
+
+
+def _transport_tier(dist_km: float) -> int:
+    """Tier 0 = local (≤ _TRANSPORT_LOCAL_KM km), tier 1 = far."""
+    return 0 if dist_km <= _TRANSPORT_LOCAL_KM else 1
+
+
+def _inv_supply_clock(dist_km: float) -> float:
+    """Estimated redistribution delivery time in fractional days (distance / road speed)."""
+    return dist_km / (_REDISTRIBUTION_SPEED_KMH * 24.0)
 
 
 # ---------------------------------------------------------------------------
@@ -419,7 +437,7 @@ def collect_inventory_candidates(
                 and phenotype_antibody_safe(patient, unit)
             ):
                 candidates.append((bank, unit, dist, (unit.expiry_date - today).days))
-    candidates.sort(key=lambda t: (t[3], t[2], t[0].bank_id))
+    candidates.sort(key=lambda t: (_transport_tier(t[2]), t[3], t[2], t[0].bank_id))
     return candidates
 
 
@@ -454,6 +472,7 @@ def choose_lever(
         (c for c in dataset.clinics if c.clinic_id == patient.clinic_id), None
     )
     clinic_loc = clinic.location if clinic else None
+    need_clk = (request.needed_by_date - today).days
 
     # ── (a) Inventory ─────────────────────────────────────────────────────
     inv_candidates = collect_inventory_candidates(patient, clinic_loc, dataset, today, radius_km)
@@ -462,6 +481,8 @@ def choose_lever(
         best_bank, best_unit, best_dist, days_to_expiry = inv_candidates[0]
         dist_km = best_dist if clinic_loc else None
 
+        _sup_clk = round(_inv_supply_clock(best_dist), 6)
+        _tier    = _transport_tier(best_dist)
         return {
             "lever":             Lever.INVENTORY,
             "bank_id":           best_bank.bank_id,
@@ -472,10 +493,15 @@ def choose_lever(
             "days_to_expiry":    days_to_expiry,
             "distance_km":       round(dist_km, 1) if dist_km is not None else None,
             "inventory_options": len(inv_candidates),
+            "need_clock_days":   need_clk,
+            "supply_clock_days": _sup_clk,
+            "transport_tier":    _tier,
+            "deliverable":       _sup_clk <= need_clk,
             "reasoning": (
                 f"Redistribute near-expiry unit from {best_bank.name} "
                 f"({days_to_expiry} day(s) to expiry, "
-                f"{round(dist_km, 1) if dist_km else '?'} km away). "
+                f"{round(dist_km, 1) if dist_km else '?'} km away, "
+                f"tier={_tier}, supply_clock={_sup_clk:.4f}d, need_clock={need_clk}d). "
                 "Covers patient need AND prevents wastage."
             ),
         }
@@ -498,19 +524,27 @@ def choose_lever(
             "donor_score":       top["score"],
             "breakdown":         bd,
             "candidates_ranked": len(ranked),
+            "need_clock_days":   need_clk,
+            "supply_clock_days": float(_DONOR_PIPELINE_DAYS),
+            "transport_tier":    None,
+            "deliverable":       _DONOR_PIPELINE_DAYS <= need_clk,
             "reasoning": (
                 f"No redistribution unit within {radius_km} km. "
                 f"Best donor: {donor.donor_id} "
                 f"(reliability={bd['reliability']:.3f}, "
                 f"distance={bd['proximity_km']} km"
                 + (", BONDED" if bd["bonded"] else "")
-                + ")."
+                + f", donor_pipeline={_DONOR_PIPELINE_DAYS}d, need_clock={need_clk}d)."
             ),
         }
 
     # ── (c) Emergency ─────────────────────────────────────────────────────
     return {
-        "lever":     Lever.EMERGENCY,
+        "lever":             Lever.EMERGENCY,
+        "need_clock_days":   need_clk,
+        "supply_clock_days": None,
+        "transport_tier":    None,
+        "deliverable":       False,
         "reasoning": (
             "No compatible, antibody-safe inventory or eligible donor found "
             f"within {radius_km} km. Escalate to regional emergency network."
@@ -519,8 +553,63 @@ def choose_lever(
 
 
 # ---------------------------------------------------------------------------
-# 11. Grid-cell desert aggregation
+# 11. Engine-certified safe+deliverable candidates (agent guardrail)
 # ---------------------------------------------------------------------------
+
+def certified_inventory_candidates(
+    patient: Patient,
+    clinic_loc: Optional[Location],
+    dataset: CanonicalDataset,
+    today: date,
+    radius_km: float = _SEARCH_RADIUS_KM,
+) -> list[dict[str, Any]]:
+    """
+    Engine-certified SAFE + DELIVERABLE inventory candidates with full clock metadata.
+
+    Wraps collect_inventory_candidates; applies the deliverability filter
+    (supply_clock <= need_clock) and enriches each entry with tier/clock fields.
+
+    This is the ONLY candidate set the agent layer may select from.
+    Hard safety guardrail: any bank_id not in this list is REJECTED by the validator.
+    Distinct from collect_inventory_candidates (which returns raw tuples, no deliverability gate).
+    """
+    next_need, _ = forecast_due(patient, today)
+    need_clk = (next_need - today).days
+    raw = collect_inventory_candidates(patient, clinic_loc, dataset, today, radius_km)
+    result: list[dict[str, Any]] = []
+    for bank, unit, dist_km, expiry_days in raw:
+        sup_clk = _inv_supply_clock(dist_km)
+        tier = _transport_tier(dist_km)
+        if sup_clk <= need_clk:
+            result.append({
+                "bank_id":           bank.bank_id,
+                "bank_name":         bank.name,
+                "abo":               unit.abo.value,
+                "rh_d":              unit.rh_d,
+                "dist_km":           round(dist_km, 2),
+                "expiry_days":       expiry_days,
+                "supply_clock_days": round(sup_clk, 6),
+                "need_clock_days":   need_clk,
+                "transport_tier":    tier,
+                "deliverable":       True,
+            })
+    return result
+
+
+def classify_desert_nature(score: int, desert_type: str) -> dict:
+    """
+    Classify a blood desert cell's nature based on score and type.
+
+    CHRONIC: COMPATIBILITY_LIMITED + score >= 10 (structural, persistent immunological barrier)
+    ACUTE:   any non-zero score not meeting CHRONIC criteria (transient or supply shortfall)
+    OK:      score == 0
+    """
+    if score == 0:
+        return {"classification": "OK"}
+    if desert_type == "COMPATIBILITY_LIMITED" and score >= 10:
+        return {"classification": "CHRONIC"}
+    return {"classification": "ACUTE"}
+
 
 def compute_desert_cells(
     dataset: CanonicalDataset,
@@ -655,6 +744,7 @@ def compute_desert_cells(
             "desert_type":                    desert_type,
             "nearest_safe_inventory_km":      nearest_safe_km,
             "eligible_matched_donors_nearby": eligible_matched_donors,
+            "classification":                 classify_desert_nature(desert_score, desert_type)["classification"],
         })
 
     cells.sort(key=lambda c: c["desert_score"], reverse=True)

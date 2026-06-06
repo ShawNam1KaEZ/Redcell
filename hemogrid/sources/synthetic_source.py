@@ -187,6 +187,15 @@ class SyntheticSource(DataSource):
         compat_stressed = self._generate_compatibility_stress(clinics, banks)
         patients.extend(compat_stressed)
 
+        # EMERGENCY test patient — appended last, after ALL rng-based generation.
+        # PAT-EMERG-99: O-, 4 alloantibodies (anti-K/E/c/C), CLN-KOL-01 (Kolkata).
+        # P(compatible O- typed donor) ≈ 0.022 × 0.12 × 0.45 × 0.82 × 0.97 < 0.001.
+        # With seed=42 and ~900 donors (Guntur-biased), zero compatible donors/units
+        # exist near Kolkata → choose_lever returns EMERGENCY deterministically.
+        emerg_patient = self._generate_emergency_patient(clinics)
+        if emerg_patient is not None:
+            patients.append(emerg_patient)
+
         return CanonicalDataset(
             blood_banks=banks,
             donors=donors,
@@ -790,6 +799,65 @@ class SyntheticSource(DataSource):
                 provenance=base_prov,
             ),
         ]
+
+    # ------------------------------------------------------------------
+    # 10. Emergency test patient (post-RNG, deterministic, no rng calls)
+    # ------------------------------------------------------------------
+
+    def _generate_emergency_patient(self, clinics: list[Clinic]) -> Optional[Patient]:
+        """
+        PAT-EMERG-99: O-, 4 alloantibodies — guaranteed to hit the EMERGENCY lever.
+
+        CLINICAL DESIGN:
+          Blood type O- (Rh-negative) confines supply to O- units/donors only
+          (~2.2 % of the Indian population).
+
+          Alloantibodies: anti-K, anti-E, anti-c, anti-C.
+            A compatible source must simultaneously satisfy ALL four constraints
+            (K=False, E=False, c=False, C=False) AND carry a typed phenotype.
+
+          P(compatible typed O- donor) ≈ 0.022 × P(K-neg=0.97) × P(E-neg=0.82)
+                                          × P(c-neg=0.45) × P(C-neg=0.12)
+                                        ≈ 0.00094
+
+          With 900 seed=42 donors concentrated around Guntur, the expected count
+          of compatible donors within 100 km of CLN-KOL-01 (Kolkata) rounds to zero.
+          No compatible PRBC inventory units with all four antigens negative and a
+          typed phenotype exist within 100 km of Kolkata either.
+
+          Result: choose_lever deterministically returns EMERGENCY for this patient.
+
+        Appended LAST — after all rng-dependent generation — so the seed=42 sequence
+        and every golden object (DON-0002, BB-0036, PAT-0001) are entirely undisturbed.
+
+        Injection line in load(): patients.append(emerg_patient)  ← single append, post-RNG.
+        """
+        today = date.today()
+        kolkata_clinic = next((c for c in clinics if c.clinic_id == "CLN-KOL-01"), None)
+        if kolkata_clinic is None:
+            return None
+
+        base_prov = {k: _P.SYNTHETIC for k in [
+            "patient_id", "abo_group", "rh_d", "phenotype",
+            "known_antibodies", "transfusion_interval_days",
+            "last_transfusion_date", "units_per_session",
+            "clinic_id", "preferred_language",
+        ]}
+
+        # need_clock = 2 days: last_transfusion_date = today - (21 - 2) = today - 19 days.
+        return Patient(
+            patient_id="PAT-EMERG-99",
+            abo_group=ABOGroup.O,
+            rh_d=False,                             # O-
+            phenotype=Phenotype(C=False, c=False, E=False, e=True, K=False),
+            known_antibodies=["anti-K", "anti-E", "anti-c", "anti-C"],
+            transfusion_interval_days=21,
+            last_transfusion_date=today - timedelta(days=19),  # due in 2 days
+            units_per_session=1,
+            clinic_id="CLN-KOL-01",
+            preferred_language="bn",
+            provenance=base_prov,
+        )
 
     # ------------------------------------------------------------------
     # 9. Principled COMPATIBILITY_LIMITED cohort + Guntur composed shelf
