@@ -975,49 +975,22 @@ export default function App() {
 
           {/* Critical stock alerts */}
           {criticalAlerts.length > 0 && (
-            <div className="forecast-alerts">
-              <div className="fa-hdr">Critical Stock Alerts</div>
-              {criticalAlerts.map(r => (
-                <div key={`${r.bankId}-${r.bloodType}`} className="fa-row">
-                  <span className="fa-sev">CRIT</span>
-                  <span className="fa-bt">{r.bloodType}</span>
-                  <span className="fa-bank">{r.bankId}</span>
-                  <span className="fa-days">{r.days_to_depletion}d left</span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Simulate donation (collapsible) */}
-          <details className="donate-section">
-            <summary className="donate-toggle">
-              Simulate Walk-in Donation
-            </summary>
-            <div className="donate-form">
-              <input className="d-in" placeholder="DNR-#####" value={donorIdInput}
-                onChange={e => setDonorIdInput(e.target.value)} />
-              <input className="d-in" placeholder="BNK-#####" value={bankIdInput}
-                onChange={e => setBankIdInput(e.target.value)} />
-              <div className="d-row">
-                <select className="d-sel" value={donationAbo} onChange={e => setDonationAbo(e.target.value)}>
-                  <option value="">ABO</option>
-                  {['O', 'A', 'B', 'AB'].map(a => <option key={a} value={a}>{a}</option>)}
-                </select>
-                <select className="d-sel" value={donationRhd} onChange={e => setDonationRhd(e.target.value)}>
-                  <option value="">Rh</option>
-                  <option value="pos">+</option>
-                  <option value="neg">−</option>
-                </select>
-                <button
-                  className="donate-btn"
-                  onClick={handleDonate}
-                  disabled={donating || !donorIdInput || !bankIdInput || !donationAbo || !donationRhd}
-                >
-                  {donating ? '…' : 'Donate'}
-                </button>
+            <details className="alerts-accordion">
+              <summary className="alerts-summary">
+                Critical Stock Alerts
+              </summary>
+              <div className="alerts-content-list">
+                {criticalAlerts.map(r => (
+                  <div key={`${r.bankId}-${r.bloodType}`} className="fa-row">
+                    <span className="fa-sev">CRIT</span>
+                    <span className="fa-bt">{r.bloodType}</span>
+                    <span className="fa-bank">{r.bankId}</span>
+                    <span className="fa-days">{r.days_to_depletion}d left</span>
+                  </div>
+                ))}
               </div>
-            </div>
-          </details>
+            </details>
+          )}
 
           {/* Activity ticker */}
           <div className="ticker">

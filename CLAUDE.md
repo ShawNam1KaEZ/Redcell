@@ -74,3 +74,5 @@ Donor-centric matching · thin bag layer · bag = ABO/Rh only · inventory = que
 ## Workflow
 Planning assistant writes prompts → run here → paste output back → reviewed against
 `HANDOFF_matching_engine.md` before next step. One buildable artifact per prompt.
+
+give detailed report after completion
