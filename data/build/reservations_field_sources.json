@@ -1,0 +1,34 @@
+{
+  "reservation_id": {
+    "real": 0,
+    "synth": 909
+  },
+  "donor_id": {
+    "real": 909,
+    "synth": 0
+  },
+  "patient_id": {
+    "real": 909,
+    "synth": 0
+  },
+  "status": {
+    "real": 0,
+    "synth": 909
+  },
+  "bag_id": {
+    "real": 0,
+    "synth": 304
+  },
+  "expected_txn_date": {
+    "real": 909,
+    "synth": 0
+  },
+  "units_reserved": {
+    "real": 909,
+    "synth": 0
+  },
+  "source": {
+    "real": 0,
+    "synth": 909
+  }
+}

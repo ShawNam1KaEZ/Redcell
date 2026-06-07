@@ -1,41 +1,76 @@
-# HemoGrid — Multi-Agent Blood Infrastructure Platform Specification (Phase 5 Polish Live)
+# CLAUDE.md — HemoGrid Thalassemia Matching System
 
-## 🚀 Execution Architecture & Port Topologies
-- Backend API Process: `uvicorn hemogrid.api.main:app --reload --port 8000` (Executed from project root)
-- Frontend Development Server: `cd frontend && npm run dev` (Runs natively on Port 5173)
-- Live LLM Harness: Bounded manual prompt loop inside `_agent_select` routing to local Ollama endpoints via a custom `llm.generate()` wrapper module. Default live model is `qwen2.5:7b` (configured via environment flag `HEMOGRID_LLM_MODEL`). If Ollama is offline, system intercepts faults via `LLMUnavailable` and switches seamlessly to f-string fallback scripts.
-- Memory Clear Gate: `POST http://localhost:8000/api/demo/reset` (Wipes the volatile cache dictionary and snaps parameters instantly back to default seed data).
+Project memory for Claude Code. Read before any build step. Keep `RANDOM_SEED=42`, `TODAY=2026-06-06`.
 
-## 📊 Core Invariants, Scientific Weights, & Two-Lock Safety
-1. Deterministic Engine Core, Edge LLM Only: All systemic calculations—including blood group compatibility, Indian subcontinent phenotype filtering, distance matrices, demand forecasting, desert cell calculations, deliverability clocks, and transport tiering—are handled purely via deterministic Python inside `hemogrid/engine.py`. The LLM computes absolutely nothing. It operates purely at the periphery to (a) narrate chosen execution reasons, (b) draft outreach copy, and (c) offer system-level structural recommendations over grid metrics.
-2. Misleading File Format: `data/blood-banks.xls` is secretly a cp1252-encoded CSV file with a `.xls` extension. It must be processed strictly via `pd.read_csv(encoding='cp1252')`, never using native Excel or xlrd parsers.
-3. Subcontinent Phenotype Frequencies: Indian regional probability for Kell K-negative is fixed at exactly `0.97` (Antigen frequency `K = 0.03`). Do not drift to the 0.91 Caucasian baseline. Alloimmunization rules mandate that antibodies are only generated against antigens a patient entirely lacks (e.g., anti-K is generated only if the patient is K-negative).
-4. Seeding Isolation Invariant: The synthetic database engine uses a static generation seed via `np.random.default_rng(seed=42)`. Core structural entities are sequence-dependent. Any custom test case injection must be appended at the absolute tail-end of the pipeline post-RNG initialization to keep prior object patterns undisturbed.
-5. The Two-Lock Safety Model: No agent can autonomously dispatch data or mutate state. The system requires two explicit validation parameters:
-   - Deterministic Filtering: The engine restricts options to safe, deliverable, and eligible sets before the LLM even sees them. The final LLM selection is re-validated against this list.
-   - Human-in-the-Loop (HITL): The system forces a hard runtime pause via LangGraph interrupts, requiring an explicit manual approval click from a human coordinator before a state transition can be committed.
+## What this is
+Donor–patient matching for thalassemia patients (Hyderabad/Telangana). Differentiator = proactive
+**extended-phenotype matching**. Stages: datasets ✅ → map ✅ → **matching engine (current)** →
+simulation → redistribution (deferred).
 
-## 🎯 The Golden Regression Targets & Presentation Profiles
-- **PAT-0001 (Aarav):** B+, K-negative, anti-K POSITIVE, Guntur clinic `CLN-GNT-01`, due in 5 days (`need_clock=5d`).
-  - Default State: Resolves to the `INVENTORY` lever -> local bank `BB-0036` (Government General Hospital, Guntur), which holds a matching B+ K-neg PRBC unit expiring in ~3 days located 0.7 km away. It wins on soonest-expiry within Transport Tier 0 (local ≤ 5km).
-  - Inventory Bypassed State: Resolves to the `DONOR` lever -> `DON-0002` (B+, K-neg, eligible, bonded, 2.4 km away, match score ≈0.9141, `supply_clock=4d`).
-- **PAT-EMERG-99:** O-negative, rare multi-antibody profile (`anti-K`, `anti-E`, `anti-c`, `anti-C`), tight 2-day timeline. Forces immediate routing to the `EMERGENCY` lever, expanding search boundaries to a 100km regional dragnet and bypassing local proximity rules.
-- **CLN-HYD-01 (Hyderabad):** Map grid cell classified mathematically as a `CHRONIC DESERT` (Score of `16`), driven by deep localized alloimmunization trends rather than a temporary volume shortfall (Acute).
+## Repo / paths
+- Build outputs: `./data/build/` (the canonical dataset — treat as source of truth).
+- CSVs: `donors.csv, patients.csv, bags.csv, antibodies.csv, reservations_log.csv,
+  potential_donors.csv, facilities.csv, banks.csv`.
+- Provenance: `*_field_sources.json` (per-column real/synth counts), `data_dictionary.md`.
+- Report: `REPORT.md` (RUN_ID-stamped on line 1), run history: `_run_history.json`.
+- Map: `./data/build/map/{map_data.json,index.html}` — view via
+  `cd ./data/build/map && python -m http.server 8000`.
+- Raw inputs: `./data/Dataset.csv` (7033×33), `./data/blood-banks.xls`.
 
-## 📂 Layout Map & File Index
-- `hemogrid/`: Core modules container.
-  - `models.py`: Pydantic v2 data models inheriting from `CanonicalModel` with explicit field-level provenance tracking.
-  - `enrichment.py`: Baseline epidemiological constants for Indian subcontinent antigen distribution profiles.
-  - `engine.py`: Pure, side-effect-free matching mathematics, sorting primitives, haversine functions, and desert decomposition algorithms.
-  - `llm.py`: Swappable language model interface wrapper. Houses the presentation-grade golden fallback blocks.
-  - `api/main.py`: FastAPI application routing layer. Manages the volatile in-memory dictionary singleton state (`_DEMO_CACHE`).
-  - `agents/graph.py`: LangGraph state topology definition, `GraphState` types, and native checkpoint interrupts.
-- `frontend/src/`: Modern user interface layer.
-  - `api.ts`: Strongly typed API schema mapping definitions to enforce code contract synchronization.
-  - `MapView.tsx` & `MapView.css`: Premium 3-column Split-Grid presentation interface. Handles conditional component rendering.
-  - `GridSimulator.tsx`: Slide-up matrix widget simulating regional supply volatility and crossover thresholds.
+## Current dataset facts (post-#3f, RUN_ID seed42-20260606-8330edb7)
+- donors 4439 (85% typed) · patients 164 (84 explicit + 80 bridge, 100% typed) · bags 2417
+  (available 536 / reserved 304 / expired 1559 / tti 18) · antibodies 51 · reservations 909
+  (resolved 304 / pending_fetch 605) · banks 149 (13 with live inventory) · facilities 21.
+- IDs are `DNR-#####` / `PAT-#####`. No `\x` anywhere (asserts enforce).
+- 84.5% of available bags trace to a typed donor.
+- `expected_transfusion_date` is forward-dated [2026-06-07, 2026-07-03].
 
-## 🛠️ Code Maintenance & Token Discipline Guide
-1. Pure Additive Modifications: Never rewrite core logical evaluation primitives inside `engine.py` or modify the sequential structure of data frames.
-2. Full Integration Verification: Every backend or frontend iteration must be audited against local simulation harnesses. Frontend mutations must pass clean type verification via `npx tsc --noEmit` before any staging deploy.
-3. Clear Context Window Routine: Instruct the developer console to run `/clear` between every logical step to prevent context window saturation and preserve operational memory thresholds.
+## INVARIANTS — never break these (asserts depend on them)
+1. **Inventory is a derived query, never a stored table/column.**
+   `available = bags[current_location_id==X & status=='available' & expiry_date>=TODAY]`.
+2. **Bags carry ABO/Rh only — never `phenotype_*` columns.** Extended phenotype lives on the donor.
+3. **Matcher uses real `latitude`/`longitude`.** `display_latitude/longitude` are MAP-ONLY (jitter).
+4. **Antibody safety is universal:** never issue an antigen-positive unit against any antibody
+   (allo+auto, active+historical). Auto antibody ⇒ `requires_adsorption_workup=True` ⇒ never
+   auto-issue (route to emergency/review tier).
+5. **Untyped donor (`phenotype=unknown`)** can never be an exact match, and is **excluded for
+   immunized patients** (cannot prove antigen-negativity). Usable (flagged) for non-immunized.
+6. **Primary keys unique; zero orphaned FKs.** bags→donors, bags→banks∪facilities,
+   patients→facilities, donors→banks, antibodies→patients, reservations→patients/donors/bags,
+   reserved bags→patients.
+7. **`expiry_date == collection_date + 42`**; `max(collection_date) <= TODAY-1`; `status==available
+   ⇒ expiry >= TODAY`.
+8. **Emails/phones format-valid, globally unique.** Phones `^\+91[6-9]\d{9}$`.
+9. Keep entities **mutation-friendly** for the sim: stable PKs, no baked-in derived values, dates as
+   real date fields.
+
+## Matching engine (current build target)
+Gate→rank→tier. Gates: (1) component+requirements+available+reachable; (2) ABO/Rh compatible
+(lattice, D− patient→D− only); (3) antibody-exclusion (universal; untyped excluded for immunized);
+(4) phenotype rank. Tiers:
+- **G1 Exact** — typed donor, ABO identical, all tested antigens match, antibody-safe. Untyped never G1.
+- **G2 Ranked compatible** — compatible + Rh+K match + antibody-safe. Untyped donors live here,
+  flagged "phenotype unconfirmed," ranked below typed. Sort: phenotype concordance → typed>untyped →
+  distance → soonest expiry.
+- **G3 Emergency / least-incompatible** — only when G1+G2 empty or auto/panreactive. Never auto-issue.
+- **Excluded** — with reason code.
+Output: `match(patient_id) -> {G1,G2,G3,excluded}`, deterministic, inventory derived live.
+The 3 immunized patients with zero compatible bags must land in G3, not error.
+
+## Conventions
+- Python + pandas. Config knobs at top of every script. Asserts loud (raise), never swallowed.
+- Reports: ALWAYS overwrite (open 'w'), stamp RUN_ID line 1, regenerate numbers from live
+  dataframes (no hand-typed constants), re-read after write and assert on-disk RUN_ID == in-memory.
+- Every build prints to stdout: RUN_ID, headline counts, assert pass/fail summary.
+
+## Do NOT relitigate
+Donor-centric matching · thin bag layer · bag = ABO/Rh only · inventory = query · 85% donor /
+100% patient typing · keep the untyped tail · real-vs-display coords split · Rh+K policy floor.
+
+## Known cosmetic debt (fix when convenient, not blocking)
+- REPORT.md §A: broken "previous report incorrectly said 33; actual is 33" line.
+- REPORT.md §A: "Bridge reservation rows: 786" not reconciled to 909 (786 links × required units).
+
+## Workflow
+Planning assistant writes prompts → run here → paste output back → reviewed against
+`HANDOFF_matching_engine.md` before next step. One buildable artifact per prompt.

@@ -1,0 +1,54 @@
+{
+  "facility_id": {
+    "real": 0,
+    "synth": 21
+  },
+  "name": {
+    "real": 0,
+    "synth": 21
+  },
+  "type": {
+    "real": 0,
+    "synth": 21
+  },
+  "city": {
+    "real": 0,
+    "synth": 21
+  },
+  "latitude": {
+    "real": 0,
+    "synth": 21
+  },
+  "longitude": {
+    "real": 0,
+    "synth": 21
+  },
+  "bootstrap": {
+    "real": 0,
+    "synth": 21
+  },
+  "source": {
+    "real": 0,
+    "synth": 21
+  },
+  "has_own_bank": {
+    "real": 0,
+    "synth": 21
+  },
+  "processing_capability_irradiate": {
+    "real": 0,
+    "synth": 21
+  },
+  "processing_capability_wash": {
+    "real": 0,
+    "synth": 21
+  },
+  "daily_transfusion_capacity": {
+    "real": 0,
+    "synth": 21
+  },
+  "associated_bank_id": {
+    "real": 0,
+    "synth": 21
+  }
+}

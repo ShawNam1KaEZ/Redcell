@@ -1,0 +1,42 @@
+{
+  "potential_donor_id": {
+    "real": 0,
+    "synth": 400
+  },
+  "latitude": {
+    "real": 0,
+    "synth": 400
+  },
+  "longitude": {
+    "real": 0,
+    "synth": 400
+  },
+  "abo": {
+    "real": 0,
+    "synth": 252
+  },
+  "rhd": {
+    "real": 0,
+    "synth": 252
+  },
+  "contacted_status": {
+    "real": 0,
+    "synth": 400
+  },
+  "signup_date": {
+    "real": 0,
+    "synth": 400
+  },
+  "source": {
+    "real": 0,
+    "synth": 400
+  },
+  "email": {
+    "real": 0,
+    "synth": 400
+  },
+  "phone": {
+    "real": 0,
+    "synth": 400
+  }
+}

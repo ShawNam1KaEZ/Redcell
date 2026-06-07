@@ -1,0 +1,74 @@
+{
+  "bag_id": {
+    "real": 2417,
+    "synth": 0
+  },
+  "donor_id": {
+    "real": 2417,
+    "synth": 0
+  },
+  "abo": {
+    "real": 2417,
+    "synth": 0
+  },
+  "rhd": {
+    "real": 2417,
+    "synth": 0
+  },
+  "collection_date": {
+    "real": 0,
+    "synth": 2417
+  },
+  "expiry_date": {
+    "real": 0,
+    "synth": 2417
+  },
+  "status": {
+    "real": 0,
+    "synth": 2417
+  },
+  "current_location_id": {
+    "real": 0,
+    "synth": 2417
+  },
+  "component": {
+    "real": 0,
+    "synth": 2417
+  },
+  "leukoreduced": {
+    "real": 0,
+    "synth": 2417
+  },
+  "irradiated": {
+    "real": 0,
+    "synth": 2417
+  },
+  "washed": {
+    "real": 0,
+    "synth": 2417
+  },
+  "cmv_negative": {
+    "real": 0,
+    "synth": 2417
+  },
+  "tti_screen_status": {
+    "real": 0,
+    "synth": 2417
+  },
+  "volume_ml": {
+    "real": 0,
+    "synth": 2417
+  },
+  "hct_percent": {
+    "real": 0,
+    "synth": 2417
+  },
+  "reserved_for_patient_id": {
+    "real": 0,
+    "synth": 0
+  },
+  "source": {
+    "real": 0,
+    "synth": 2417
+  }
+}

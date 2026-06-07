@@ -1,0 +1,50 @@
+{
+  "bank_id": {
+    "real": 149,
+    "synth": 0
+  },
+  "name": {
+    "real": 149,
+    "synth": 0
+  },
+  "category": {
+    "real": 145,
+    "synth": 0
+  },
+  "address": {
+    "real": 149,
+    "synth": 0
+  },
+  "city": {
+    "real": 149,
+    "synth": 0
+  },
+  "latitude": {
+    "real": 149,
+    "synth": 0
+  },
+  "longitude": {
+    "real": 149,
+    "synth": 0
+  },
+  "contact_no": {
+    "real": 123,
+    "synth": 0
+  },
+  "apheresis": {
+    "real": 95,
+    "synth": 0
+  },
+  "service_time": {
+    "real": 118,
+    "synth": 0
+  },
+  "bootstrap": {
+    "real": 149,
+    "synth": 0
+  },
+  "source": {
+    "real": 149,
+    "synth": 0
+  }
+}

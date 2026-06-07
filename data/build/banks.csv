@@ -1,0 +1,158 @@
+bank_id,name,category,address,city,latitude,longitude,contact_no,apheresis,service_time,bootstrap,source
+BNK0001,Rajiv Gandhi Institute of Medical Sciences Blood Bank,Government,"Teachers Colony, Near State Bank of Hyderabad, Ground Floor, IP Block, Govt. District Head Quarters Hopsital Premises",Adilabad,19.664144,78.524732,8732224108,,24x7,False,real
+BNK0002,Sri Lakshmi Blood bank,Private,"D.No.4-5-29/5, Sri Sai Maternity Hospital, Near Rly. Gate, Bhokthapur",Adilabad,0.0,0.0,8732230777,,,False,real
+BNK0003,Indian Red Cross Society Blood Bank,Charity,"Ground Floor, Area Hospital, I.B Chaurastha",Mancherial,18.87247,79.444699,"08736259259, 08736252259",YES,24x7,False,real
+BNK0004,Singareni Collieries Co. Ltd Blood bank,Charity,"Sector-1, Area Hospital, Ramakrishnapur, Mandamarri (M), Bellampalli",Mandamarri,19.063129,79.487441,08736-228677 ext No -328,,24x7,False,real
+BNK0005,Indian Red Cross Society Blood Bank,Government,"Area Hospital, Gajulpet Road
+near A1 Function Hall",Nirmal,19.664062,78.532011,9440387455,NO,24x7,False,real
+BNK0006,The Singareni Collieries Co. Ltd,Government,"Area Hospital Blood Bank, Ramakrishnapuram",R.K puram,19.664062,78.532011,08736 228677,,24x7,False,real
+BNK0007,Prime Hospital Blood Bank,Private,"Plot No.4, Behind Mythrivanam Building, Ameerpet",Ameerpet,0.0,0.0,040 44569973,,,False,real
+BNK0008,Image Hospital Blood Bank,Private,"A Division of Image Healthcare Limited,1st Floor, Image House, 8-3-903/F/12&1, Ameerpet",Ameerpet,0.0,0.0,040 23755555,,,False,real
+BNK0009,Challa Hospital Blood Bank (A Multi Speciality Hospital),Private,"D.No. 7-1-71/A/1, 1st Floor, Dharam Karam Road, Ameerpet",Ameerpet,17.439581,78.450633,040 23731215,YES,24x7,False,real
+BNK0010,Aarohi Blood Bank,Charity,"No.6-3-182/1 to 3, 3rd Floor, 
+Lake View Palace, 
+Road No.1, Banjara Hills",Banjara Hills,17.411615,78.449834,040 23384212	,NO,24 HRS,False,real
+BNK0011,Institute of Transfusion Medicine and Research,Charity,"Road.No.1, Banjara Hills",Banjara Hills,17.42114,78.449212,040 23328956,,24x7,False,real
+BNK0012,NTR Trust Blood Bank,Charity,"D.No. 8-2-269/H/191/A/1, NTR Trust Bhavan, Road No. 2, Banjara Hills",Banjara Hills,17.423643,78.425977,040 30799999,YES,24x7,False,real
+BNK0013,Care Hospital Blood Bank,Private,"1st Floor, Road No.1, Banjara Hills",Banjara Hills,17.412542,78.450258,040 30418296,NO,24x7	,False,real
+BNK0014,Star Hospitals Blood Bank,Private,"A unit of Unimed Healthcare Private Limited, 6th floor,8-2-596/ Road No : 10, Banjara Hills",Banjara Hills,17.41567,78.439477,040 44777777 EXT: 603,NO,24x7,False,real
+BNK0015,Basavatarakam Indo-American Cancer Hospital and Research Institute Blood Bank,Private,"Block.No. III, Cellar Portion,Road No.14, Banjara Hills",Banjara Hills,0.0,0.0,040 23551235,,,False,real
+BNK0016,Mythri Charitable Trust Blood Bank and Transfusion Centre,Charity,"3-4-808 1st Floor, Barkatpura, Bs C C Shroff Hospital, Barkatpura, Hyderabad, Telangana",Barkatpura,17.391514,78.497215,"040 27550238, 040 66822271",YES,12 Hrs,False,real
+BNK0017,Sanjeevini Blood Bank,Charity,"Sanjeevini Non-Governmental Organisation, Niveditha Orthopaedic Center, H.No.1-1-79/A, RTC Cross Road, Bhagyanagar, Hyderabad",Bhagyanagar,17.405787,78.499215,"040 27667500, 040 65522343",YES,24x7,False,real
+BNK0018,Sai Vani Super Speciality Hospital Blood Bank,Private,"A Unit of Viswa Health Institute Private Limited, D.No.1-2-365/36/6&7, 6th Floor, Ramakrishna Math Road, Domalguda, Hyderabad",Domalguda,0.0,0.0,,,,False,real
+BNK0019,The Military Hospital Blood Bank,Government,"Military Hospital Premises, Golconda",Golconda,0.0,0.0,040 27792580,,,False,real
+BNK0020,Rudhira Voluntary Blood Bank,Charity,"H.No.3-6-10/A,1st floor, Anasuya Commercial Complex, Liberty Road, Himayathnagar",Himayathnagar,17.406011,78.478212,040 23220222,YES,24x7,False,real
+BNK0021,Satya Nursing Home Blood Bank,Private,"D.No. 3-6-426, First Floor, Street No. 4, Himayatnagar, Hyderabad, Hyderabad District, Telangana",Himayatnagar,17.404758,78.482139,040 66753026,YES,24x7,False,real
+BNK0022,Nizams Institute of Medical Sciences Blood Bank,Government,"Accident and Emergency Block, 2nd Floor, Road.No.1, Banjara Hills",Hyderabad,17.421241,78.451389,040 23489722,YES,24x7,False,real
+BNK0023,The Osmania General Hospital Blood Bank,Government,"Osmania General Hospital Premises, Hyderabad",Hyderabad,17.372522,78.473807,040 24600146,YES,24x7,False,real
+BNK0024,MNJ  Institute of Oncology and Regional Cancer Centre Blood Bank,Government,"Ground Floor, Lakdikapool, Red Hills",Hyderabad,17.398812,78.462087,"040 23397000, 040 23318424",NO,24x7,False,real
+BNK0025,General Chest Hospital,,"Blood Bank Medical Officer,  Blood Bank, General and Chest Hospital, Irrumnuma, Hyderabad",Hyderabad,17.445384,78.434951,040-23814939,,24x7,False,real
+BNK0026,Lions Club of Hyderabad(East) Bhanji Kheraj Blood Bank,Charity,"Feroz Gandhi Park,  Bank Street, Koti, Hyderabad",Hyderabad,17.520718,78.440959,040 24745243,,24x7,False,real
+BNK0027,Blood Bank Thelasemia and Sickle Cell,,"Blood Bank Medical Officer, Blood Bank Thelasemia and Sick Cell, Hyderabad",Hyderabad,17.385044,78.486671,,,24x7,False,real
+BNK0028,Andhra Mahila Sabha Durgabhai Deshmukh Hospital & Blood Bank,Charity,"Osmania University Road, Ram Nagar Gundu, Adikmet, Hyderabad, Telangana",Hyderabad,17.4025,78.509832,"040 27656969, 040 27681158",YES,24x7,False,real
+BNK0029,Share Medical Care (Mediciti Hospital) Blood Bank,Private,"D.No. 5-9-22/B/103, Flat No.103, First Floor, My Home Sarovar Complex, Secretariat Road",Hyderabad,17.406546,78.471614,040 23231111,NO,24x7,False,real
+BNK0030,Mahavir Hospital and Research Centre Blood Bank,Private,"D.No. 10-1-1, Ground Floor, Bhagwan Mahavir Marg, A.C. Guards, Masab Tank",Hyderabad,0.0,0.0,040 23497377,,,False,real
+BNK0031,Aditya Hospital Blood Bank,Private,"4-3-154/3, Beside Pragati College, Hanuman Tekdi, Abids, Hyderabad.",Hyderabad,17.390308,78.481143,040 24763565,YES,24x7,False,real
+BNK0032,Himabindhu Multispeciality Hospital Blood Bank,Private,"H.No. 17-1-383/1/1, 1st Floor, Vinay Nagar, Sagar Road, Santhosh Nagar",Hyderabad,17.352329,78.506534,040 64558828  ,NO,24x7,False,real
+BNK0033,Genetic Products Charitable Association Blood Bank,Charity,"D.No. 6-3-663/915, G-Block, Ground Floor, Kanthi Shikara Complex, Punjagutta",Hyderabad,0.0,0.0,"040 23411658, 040 23403882",YES,24 hrs,False,real
+BNK0034,Thalassemia and Sickle Cell Society Vuppala Venkaiah Memorial Blood Bank,Charity,"D.No.22-8-496 to 501, 1st and 2nd floor, Chatta Bazar X Road, Near City Civil Courts, Purana Haveli, Hyderabad",Hyderabad,17.368886,78.480146,040 24403783,YES,24x7,False,real
+BNK0035,NEW LIFE EDUCATIONAL SOCIETY BLOOD BANK,Charity,"22-1-1038,1st FLOOR,ABID ALI KHAN LIONS EYE HOSPITAL,DARULSHIFA, Hyderabad, TELANGANA",HYDERABAD,17.37694,78.34905,"040 24575757, 040 64558864",NO,24x7,False,real
+BNK0036,Apollo Hospital Blood Bank,Private,"Apollo hospital, Ground floor, Jubilee hills, Hyderabad",Hyderabad,17.415057,78.416515,"040 23607777, Ext: 2604",YES,24x7,False,real
+BNK0037,Employees State Insurance Corporation Medical College Hospital Blood Bank,Government,"Second Floor, Radiology Block, Sanath nagar, Hyderabad",Hyderabad,17.447882,78.439955,040 67872049,YES,24 hrs,False,real
+BNK0038,Venus Hospital Blood Bank,Private,"H.No.16-2-661/EFGH, Judges Colony, Malakpet, Hyderabad",Hyderabad,0.0,0.0,040 24650776,,,False,real
+BNK0039,Yashoda Super Speciality Hospitals Blood Bank,Private,"D.No. 6-3-903/A/4/F-3, 2nd floor, Shirdi Apartments,
+Somajiguda",Hyderabad,17.424342,78.457724,040 23319999,YES,24x7,False,real
+BNK0040,Apollo Hospital Enterprises Ltd,Private,"D.No.3/5/836 to 838, main road, hyderguda, hyderabad.",Hyderguda,17.39928,78.479256,040 23231380,NO,24x7,False,real
+BNK0041,Lions Club Matadin Goel Blood Bank,Charity,"Blood Bank Medical Officer,  Lions Club Matadin Goel Blood Bank, Himayatnagar, Hyderabad,",Hymayathnagar,17.403106,78.479609,040 23226624,,24x7,False,real
+BNK0042,Chiranjeevi Blood Bank,Charity,"Road No.1, Jubliee Hills checkpost",Jublee Hills,17.428205,78.416539,"040 23555005, 040 23554849",YES,24x7,False,real
+BNK0043,Owaisi Medical and Research Centre,Private,"Nawab Lutfud Dowli Palace,  Kanchanbagh, Zafargadh,Santoshnagar,Hyderabad",Kanchanbagh,17.34132,78.506714,"040 64638871, 040 24343129, 040 24323723",NO,24x7,False,real
+BNK0044,"Apollo Hospital Enterprises Ltd, Apollo DRDO Hospital Blood Bank",Private,"D.No.18-14, Ground Floor, DMRL X Roads, Kanchanbagh, Hyderabad",Kanchanbagh,0.0,0.0,040 24342222,,,False,real
+BNK0045,Kamineni Health Services Pvt.Ltd. Blood Bank,Private,"D.No. 4-1-1227, Cellar Portion, Boggulakunta, Kingkoti, Hyderguda, Hyderabad District, Telangana",Kingkoti,17.392587,78.479728,"040 66924030, 040 66924444",NO,24x7,False,real
+BNK0046,The Government  Maternity Hospital,Government,"Blood bank,  Sultan Bazar, Koti, Hyderabad",Koti,17.385808,78.48723,040 23305967,NO,24x7,False,real
+BNK0047,Global Hospital Blood Bank,Private,"D.No.6-1-1070/1 to 4, Lakdikapool",Lakdikapool,17.405254,78.463164,"040 23244444, 040 30644444",YES,24x7,False,real
+BNK0048,Sri Balaji Blood Bank (A Unit of Sri Balaji Educational Society),Charity,"Cellar Portion, 16-8-923, Nalgonda X Road, Malakpet, Hyderabad",Malakpet,17.375363,78.497278,040 64522466,YES,24x7,False,real
+BNK0049,Vivekananda Environmental International Society Social Service Blood Bank,Charity,"12-2-790/53/1, Ground and First Floor, Ayodhyanagar, Mehdipatnam",Mehdipatnam,0.0,0.0,040 64606048,,,False,real
+BNK0050,Premier Hospital Blood Bank,Private,"12-2-718, Nanal Nagar X Roads, Mehdipatnam, Hyderabad",Mehdipatnam,17.391657,78.427008,040 23774469,NO,24x7,False,real
+BNK0051,Jaya Diagnostic Research Centre Medwin Hospital Blood Bank,Private,"6th Floor, 100, Raghava Ratna Towers, D.No. 5-8-316 to 322, Chiragali Lane, Nampally",Nampally,0.0,0.0,040 66516502,,,False,real
+BNK0052,Care Hospital Blood Bank (A Unit of Quality Care India Limited),Private,"Third Floor, 5-4-199, 3rd Floor, J.N. Road, Nampally",Nampally,0.0,0.0,040 30417445,,,False,real
+BNK0053,Institute of Preventive Medicine,Government,"Public Health Laboratories and Food (Health) Administration, Narayanaguda, Hyderabad",Narayana guda,17.393915,78.490331,040 27557733,NO,24x7,False,real
+BNK0054,M G M H BLOOD BANK (Government Modern Maternity Hospital),Government,"Government Modern Maternity Hospital, Opp City College, Petlaburz, Hyderabad",Petlaburj,17.365982,78.464893,040 24523641,NO,24x7,False,real
+BNK0055,Rakshita Voluntary Blood Bank,Charity,"H.No.5-1-931, First Floor, Jambagh, Putlibowli",Putlibowli,17.381461,78.480605,040 65263309,NO,24x7,False,real
+BNK0056,The Govt. Niloufer Hospital Blood Bank,Government,"Premises of Government Niloufer Hospital, Red Hills, Nampally",Red Hills,17.398649,78.461057,"040 23314075, Ext : 287",NO,24x7,False,real
+BNK0057,"Health, Agriculture, Rural Development Society (HARD)  Blood Bank",Charity,"No.11-5-263/3, Red Hills, Hyderabad",Red Hills,17.396159,78.463155,"040 23300859, 040 23300959",YES,24x7,False,real
+BNK0058,The ESI Hospital Blood Bank,Government,"ESI Hospital premises, Ground Floor, Sanathnagar",Sanathnagar,17.456588,78.426852,"040 23701232, 040 23701233",,24x7,False,real
+BNK0059,St. Theresa&#39;s Hospital Blood Bank,Charity,"Erragadda, Sanath Nagar, Hyderabad",Sanathnagar,17.451375,78.436556,"040 23802255, 040 23812288",YES,24x7,False,real
+BNK0060,Gandhi Hospital Blood Bank,Government,"1st Floor, A block, Musheerabad, Secunderabad, Telangana",Secunderabad,17.42323,78.504138,040 27505566,YES,24x7,False,real
+BNK0061,Lions Club of Secunderabad Twin Cities,Charity,"2nd Floor, Varalaxmi Complex, Opposite Stay Inn Hotel, James Street, M.G.Road, Secunderabad",Secunderabad,17.432643,78.490824,040 32411317,,24x7,False,real
+BNK0062,Yashoda Hospital (A Unit of Datta Chandra Hospital Pvt. Ltd.)  Blood Bank,Private,"1-1-156/157, 9th Floor, Alexander Road, Secunderabad, Telangana",Secunderabad,17.441664,78.497002,"040 23319999, 040 24555555, 040 27713333",YES,24x7,False,real
+BNK0063,South Central Railway Hospital,Government,"Lalaguda, Secunderabad",Secunderabad,0.0,0.0,040 27789173,,,False,real
+BNK0064,Andrha Pradesh State Road Transport Corporation Hospital Blood Bank,Government,"Ground Floor, Room.No. 18&19, APSRTC Hospital Pemises, Tarnaka, Secunderabad",Secunderabad,0.0,0.0,"040 27018691, 040 27003695",,,False,real
+BNK0065,Vivekananda Environmental International Society Social Service Blood Bank,Charity,"H.No.9-1-127/D/1, Opposite St.Mary&#39;s Church, S.D.Road, Secunderabad",Secunderabad,17.440396,78.500468,040 64505032,NO,24x7,False,real
+BNK0066,Janani Voluntary Blood Bank (A Unit of Janani Organization),Charity,"D.No.9-1-66/3, 2nd Floor, Lane Opposite Oriental Bank, S.D.Road, Secunderabad",Secunderabad,17.441361,78.500984,040 65603222,NO,24x7,False,real
+BNK0067,Military Hospital Blood Bank,Government,"Military Hospital premises Trimulgherry, Secunderabad",Secunderabad,0.0,0.0,040 27886559,,,False,real
+BNK0068,Krishna Institute of Medical Sciences Blood Bank,Private,"D.No.1-8-31/1, Block-III, 2nd Floor, Minister Road, Secretariat, Secunderabad",Secunderabad,17.437572,78.482096,"040 44186253 , 040 44186255",YES,24x7,False,real
+BNK0069,Jeevadhara Voluntary Blood Bank (A Unit of Jeevadhaara Society),Charity,"H.No.9-4-269 to 275, Saluja Hospital, Second Floor, Rezimental Bazar, Secunderabad",Secunderabad,17.435457,78.502918,"040 65996696, 040 27707088",YES,24x7,False,real
+BNK0070,Sunshine Hospital Blood Bank,Private,"No.1-7-201- to 205, II Floor, P.G.Road, Behind Paradise  Hotel,  Secunderabad",Secunderabad,17.44101,78.486923,"040 64643345, 040 43444546",YES,24x7,False,real
+BNK0071,Sri Devi Charitable Trust Blood Bank,Charity,"D. No.: 12-13-197, Flat No. 106 & 107, Opposite HUDA Complex, Tarnaka, Secunderabad",Secunderabad,17.424972,78.535869,040 27016016,NO,24x7,False,real
+BNK0072,Princess Esra Hospital Blood Bank,Charity,"Second Floor, 23-2-665, Shah Ali Banda",Shah Ali Banda,17.356461,78.474211,040 65875989,NO,24x7,False,real
+BNK0073,Asian Institute of Gastroentrology Blood Bank,Private,"6-3-661, Somajiguda, Hyderabad",Somajiguda,0.0,0.0,040 23378888,,,False,real
+BNK0074,RTC Hospital,Government,"RTC Hospital Blood Bank, Tarnaka, Hyderabad",Tarnaka,17.425416,78.530499,040-27018691,NO,24x7,False,real
+BNK0075,Indian Red Cross Society Blood Bank,Charity,"1-9-310, Street No:14, Opposite Achyutha Reddy Complex,  Vidya Nagar Hyderabad",Vidhyanagar,17.405048,78.508731,040 27633087,NO,24x7,False,real
+BNK0076,Chalmeda Ananda Rao Institute of Medical Sciences Blood Bank,Private,"Block C, Ground Floor, Bommakal (V), Karimnagar",Bommakal,18.45324,79.165083,"0878 2285565, 0878 2285318",YES,24x7,False,real
+BNK0077,Singareni Collieries Co.Ltd Blood Bank,Government,"Area Hospital Blood Bank, Ram Mandir, Godavarikhani",Godavarikhani,18.75955,79.481638,08728-244362,NO,24x7,False,real
+BNK0078,Nelavelly Blood Bank,Charity,"(A Unit Of Nelavelly Laxma Rao Social Service Charitable Trust)
+Door No:7-1-236, Santoshnagar, Opposite SKNR Women Degree College",Jagtial,0.0,0.0,8724230333,,,False,real
+BNK0079,"Indian Red Cross Society Jagityal, Blood Bank",Charity,"District Headquarters Hospital JAGTIAL 
+First Floor, Old Bus Stand",JAGTIAL,18.438555,79.128841,9441290111,NO,24x7,False,real
+BNK0080,Government District Head Quarters Hospital Blood Bank,Government,"Savaran Street, Manchiryal Chowrastha",Karimnagar,18.438555,79.128841,"0878 2240223, 0878 2240337",,24x7,False,real
+BNK0081,Indian Red Cross Society Blood Bank,Charity,"D.No.4-1-22, Osmanpura, 
+Opp to Andhra Bank Main Branch",Karimnagar,18.438555,79.128841,0878 6451199,,24x7,False,real
+BNK0082,Life Care Voluntary Blood Bank,Charity,"D.No.3-1-446, 1st Floor, Opposite Government Hospital, Prashanth Nagar",Karimnagar,18.443293,79.12973,,YES,24x7,False,real
+BNK0083,Prathima Institute of Medical Sciences Blood Bank,Private,"1st Floor, Hospital Building, Nagnur",Nagnur,18.498565,79.151148,"0878 2216500, 08782216555, 08782216380/81",YES,24x7,False,real
+BNK0084,Apollo Reach Hospitals - Apollo Blood Bank,Private,"H.No.4-72, 3rd Floor, Subhash Nagar, 
+Near Railway station",Subhash Nagar,18.454907,79.13294,0878 2200000,YES,24x7,False,real
+BNK0085,The Government Area Hospital Blood Bank,Government,"Bhadrachalam, Bhadradri Kothagudem",Bhadrachalam,17.584049,80.332784,,NO,24x7,False,real
+BNK0086,The APVVP District Head Quarters Hospital Blood Bank,Government,"1st Floor, Room.No.31, O.P. Block, Wyra Road, Khammam",Khammam,17.247253,80.151445,08742 224815,,24x7,False,real
+BNK0087,Rudhira Voluntary Blood Bank,Charity,"(A Unit of Rudhira Health Organization), H.No.11-4-25/A, 1st & 2nd Floor, Wyra Road, Khammam",Khammam,17.769321,80.499386,08742 220666,YES,24x7,False,real
+BNK0088,Mamata General Hospital Blood Bank,Private,"D. No: 5-7-200, Giriprasad Nagar Pakabanda Bazar, Khammam",Khammam,0.0,0.0,08742 230864,,,False,real
+BNK0089,Siva Multi Speciality Hospital Blood Bank,Private,"H.No.11-2-44, Balaji Nagar, Wyra Road, Khammam",Khammam,17.2508,80.144151,08742 231883,YES,24x7,False,real
+BNK0090,The Government Area Hospital Blood Bank,Government,"Kothagudem, Khammam",Kothagudem,17.249377,80.152006,,,24x7,False,real
+BNK0091,The Singareni Collieries  Co. Ltd,Government,"Hospital Blood Bank, Main Hospital, Kothagudem, Khammam",Kothagudem,17.247253,80.151445,,,24x7,False,real
+BNK0092,Sarala Blood Bank,Private,"A Unit of Sarala Memorial Charitable Chartitable Trust, D.No. 5-13-7, 2nd Floor, M.G. Road, Kothagudem, Khammam",Kothagudem,17.556004,80.614396,,NO,24x7,False,real
+BNK0093,Singareni Collieries Co. Ltd,,"Blood Bank Medical Officer,  Blood Bank, Singareni Collieries Co. Ltd, Manuguru, Dist. Khammam, Mobile no:9491145024",Manuguru,17.931207,80.82662,,,24x7,False,real
+BNK0094,Asha Emergency & Chest Hospital Blood Bank,Private,"D. No.: 4-851/1, Opposite Bus Stand, Kalabharathi Road, Sattupally, Khammam",Sattupally,17.24618,80.832243,8790276999,NO,24x7,False,real
+BNK0095,Singareni Collieries Co. Ltd,Government,"Singareni Collieries Co. Ltd Blood Bank, Yellandu, District Khammam.",Yellandu,17.594134,80.322363,,NO,24x7,False,real
+BNK0096,Indian Red Cross Society,Charity,"Blood Bank, Area Hospital, Gadwal, Mahaboobnagar",Gadwal,16.233659,77.808136,08546 271757,NO,24x7,False,real
+BNK0097,Government District Head Quarters Hospital Blood Bank,Government,"Ground Floor, Mahaboobnagar",Mahaboobnagar,16.750213,77.991441,,,24x7,False,real
+BNK0098,Indian Red Cross Society Blood Bank,Charity,"Ground & First Floor,D.No.1-6-65/5/A,1-6-65/5/A, Modern High School Chourastha",Mahabubnagar,16.0,78.0011525,"08542 223225,08542 246225 ",NO,24*7,False,real
+BNK0099,IRCS & RCH-II  Blood Bank District Hospital Wanaparthy,Charity,"Blood Bank, District Hospital,Wanaparthy, WANAPARTHY",WANAPARTHY,16.362312,78.062182,08545 230133,NO,24x7,False,real
+BNK0100,SVS Medical College Hospital Blood Bank,Private,"Blood Bank, Ist Floor, Yenugonda, Mahaboobnagar",Yenugonda,0.0,0.0,9958758150,,,False,real
+BNK0101,Maheshwara Medical College and Maheshwara Hospital Blood Bank,Private,"1st floor, Maheshwara Hospital Building, Isnapur Cross Road, Chitkul Village, Patancheru Mandal, Medak",Patancheru Mandal,17.562407,78.20521,,NO,24x7,False,real
+BNK0102,Bharat Heavy Electricals Limited Hospital,Government,"Blood Bank, Ramachandrapuram, Medak",Ramachandrapuram,17.496713,78.305268,040 23184386,,24x7,False,real
+BNK0103,The APVVP District Head Quarters Hospital,Government,"Blood Bank, Sangareddy, Medak",Sangareddy,18.052936,78.261853,,,24x7,False,real
+BNK0104,M.N.R. Medical College Hospital,Private,"Blood Bank, Fasalwadi, Narsapur Road, Sangareddy, Medak",Sangareddy,0.0,0.0,,,,False,real
+BNK0105,Indian Red Cross Society,Government,"Blood Bank, Area Hospital Premises, Siddipet,  Medak",Siddipet,18.098842,78.84139,,NO,24x7,False,real
+BNK0106,Government District Head Quarter Hospital Nalgonda,Government,"Blood Bank, District Head Quarters Hospital Premises, 1st Floor, Old Building, Nalgonda",Gollaguda,17.055864,79.277882,,NO,24x7,False,real
+BNK0107,Jyothi Hospital Blood Bank,Private,"Blood Bank, Ground Floor, Near Hanuman Temple, Church Road, Miryalaguda, Nalgonda",Miryalaguda,0.0,0.0,,,,False,real
+BNK0108,Indian Red Cross Society,Charity,"Blood Bank, D.No. 5-6-300, Red cross Bhavan, Near RTC Bus Stand, Nalgonda",Nalgonda,17.054925,79.273455,,,24x7,False,real
+BNK0109,Kamineni Institute of Medical Sciences Hospital,Private,"Blood Bank, Ground Floor, Sreepuram, Narketpally, Nalgonda",Narketpally,0.0,0.0,,,,False,real
+BNK0110,Lions Club Blood Bank,,"Govt Area Hospital, Main Road , Suryapet - Nalgonda Dist  08684-224699",Suryapet,17.057571,79.262029,08684 224699,,24x7,False,real
+BNK0111,"Indian Red Cross Society ,RCH-II",Government,"Blood Bank, RCH-II, TVVP Area Hospital, 1st Floor, Suryapet, dist:Suryapet.",Suryapet,17.141493,79.606681,8684224699,YES,24x7,False,real
+BNK0112,Sai Prasad Orthopedic Hospital,Private,"Blood Bank, H.No.1-2-270/45/3, Opposite Vijetha Hotel, Suryapet, Nalgonda",Suryapet,17.135315,79.633367,08684 223223,NO,24x7,False,real
+BNK0113,Indian Red Cross Society,Charity,"Blood Bank, Area Hospital, Kamareddy, Nizamabad",Kamareddy,18.322975,78.337899,08468 221096,,24x7,False,real
+BNK0114,V.T.Thakur Memorial Rotary,Charity,"Blood Bank, H.No.1-4-31/1, Godown Road, Bathukammakunta, Kamareddy, Nizamabad",Kamareddy,18.323995,78.334305,08468 222222,NO,24x7,False,real
+BNK0115,The Government District Headquarters Hospital,Government,"Blood Bank, 7th  Floor, Khaleelwadi, R.P. Road, Nizamabad",Khaleelwadi,18.675665,78.099084,08462 251251,NO,24x7,False,real
+BNK0116,Indian Red Cross Society,Charity,"Blood Bank, M.R.O. Office, Complex, Khaleelwadi, Nizamabad",Khaleelwadi,18.672505,78.094087,08462 222002,NO,24x7,False,real
+BNK0117,Perali Narasaiah Memorial Charitable Trust,Charity,"Blood Bank, H.No.5-7-71, Khaleelwadi, Nizamabad",Khaleelwadi,18.674236,78.10156,08462 220141,NO,24x7,False,real
+BNK0118,S.B.Voluntary Blood Bank,Charity,"H.No.5-6-812, 3rd Floor, Amrutha Laxmi Hospital, Opposite Rajiv Gandhi Auditorium, Khaleelwadi, Nizamabad",Khaleelwadi,18.673955,78.102653,08462 646430,NO,24x7,False,real
+BNK0119,M.M.Voluntary Blood Bank,Charity,"4-194, Ferozguda, Balanagar, Hyderabad",Hyderabad,0.0,0.0,040 23774469,,,False,real
+BNK0120,BBR Multispeciality Hospital Blood Bank,Private,"H. No.: 7-4-194, Ferozguda, Near Bank of India, Balanagar, Hyderabad",Hyderabad,17.464246,78.457112,"040 23773333, 040 23778800",YES,24x7,False,real
+BNK0121,Janani Voluntary Blood Bank,Charity,"D.No.125-28-11/1, GPR Complex, KPHB Colony, Kukatpally, Hyderabad",Hyderabad,17.491139,78.398166,040 23150496,NO,24x7,False,real
+BNK0122,Life Voluntary Blood Bank,Charity,"MIG-323,Above Syndicate Bank,Road no-4, Remedy hospital lane,  First Floor, KPHB Colony, Phase-I, Kukatpally, Ranga Reddy.",Hyderabad,17.492862,78.39781,"040 23059222, 040 23159222",NO,24x7,False,real
+BNK0123,Ozone Institute of Medical Sciences Hospital Blood Bank,Private,"H. No.: 11-13-201/33, Plot No. 23, 25 & 26. Road No. 4, Green Hills Colony, L. B. Nagar, Hyderabad",Hyderabad,17.36107,78.549759,"040 30108109, 040 64556533",YES,24x7,False,real
+BNK0124,Rajyalakshmi Charitable Trust Blood Bank (A Unit of Rajyalakshmi Charitable Trust),Charity,"1st Floor, D.No.18-77/78, Street No.3, Kamala Nagar, Chaitanyapuri, Dilsukhnagar, Hyderabad",Hyderabad,17.367454,78.530729,040 64597760,YES,24x7,False,real
+BNK0125,Kamineni Hospitals Private Limited Blood Bank,Private,"Sy.No. 68, L.B.Nagar, Hyderabad",Hyderabad,0.0,0.0,,,,False,real
+BNK0126,Continental Hospital Blood Bank,Private,"Plot No. 3, Road No. 2, IT & Financial district, Nanakramguda, Hyderabad",Hyderabad,17.417886,78.339922,"040 67000000, Extn: 1105",YES,24x7,False,real
+BNK0127,Asian Blood Bank of Asian Health Foundation,Charity,"Plot No.2, 2nd floor, Shanthi Surabhi Complex, Dr.A.S.Rao Nagar X roads,  Hyderabad",Hyderabad,0.0,0.0,,NO,24x7,False,real
+BNK0128,ADRM Hospital and Blood Bank,Private,"4th Floor, D.No. 9-2, Plot No. 3, Ramanthapur, Hyderabad",Hyderabad,17.398478,78.536069,040 27035588,YES,24x7,False,real
+BNK0129,Narayana Hrudayalaya Mallareddy Hospital Blood Bank,Private,"# 1-1-216, Suraram &#39;X&#39; Road, Qutbullapur Mandal, Jeedimetla, Hyderabad",Hyderabad,17.544026,78.433044,"040 23783106, 040  23783000 Extn: 3106",NO,24X7,False,real
+BNK0130,Ram Hospital Blood Bank,Private,"2nd Floor,Ram Hospital, D.No.57/A, Shapur Nagar, IDA., Jeedimetla, Hyderabad",Hyderabad,17.516138,78.447736,040 23095757.9703730554,YES,24x7,False,real
+BNK0131,Malla Reddy Medical College and Malla Reddy General Hospital Blood Bank,Private,"Survey No.138, Suraram Main Roads, Quthbullapur Mandal",Quthbullapur,17.545201,78.432739,040 23783000 Extn: 3106,NO,24x7,False,real
+BNK0132,Shadan Institute of Medical Sciences Teaching Hospital & Research Centre Blood Bank,Private,"Peerancheru, Himayath Sagar Road, Rajendra Nagar Mandal",Rajendra Nagar Mandal,0.0,0.0,040-20021037,,,False,real
+BNK0133,Aware Global Hospital Blood Bank,Private,"Ground Floor(North Block), Room No. 702 to 710, D.No.08-16-01, Sowbhagya Nagar, Sagar Road, Saroor Nagar",Ranga Reddy,0.0,0.0,040 24111111 Extn: 787,,,False,real
+BNK0134,Medicity Institute of Medical Sciences Blood Bank,Private,"Hospital Building, Ground Floor, Ghanapur(V), Medchal Mandal",Ranga Reddy,0.0,0.0,08418 256256 Extn: 238,NO,24 hours,False,real
+BNK0135,Usha Mullapudi Cardiac Centre,Private,"Gajularamaramb (v), Quthbullapur Municipality",Ranga Reddy,0.0,0.0,040 23090609 Ext: 221 & 224,,,False,real
+BNK0136,Bhaskar Medical College and General Hospital Blood Bank,Private,"Sy. No.220, 221/2 & 228, Yenkapally Village, Moinabad Mandal",Ranga Reddy,0.0,0.0,08413 235446 Extn: 214,,,False,real
+BNK0137,Dr. V. R. K. Womens college and general Hospital Blood Bank,Private,"Sy.No.176/38, Aziznagar(v), Moinabad Mandal",Ranga Reddy,0.0,0.0,08413 235074,,,False,real
+BNK0138,SLMS Hospital Blood Bank,Private,"Nagole &#39;x&#39; Roads, Ranga Reddy",Ranga Reddy,17.376463,78.557369,040 64579998,NO,24x7,False,real
+BNK0139,Ayaan Institute of Medical Sciences (AIMS),Private,"Teaching Hospital & Research Centre, Kanakammadi Village, Moinabad Mandal",Ranga Reddy,0.0,0.0,,,,False,real
+BNK0140,Citizens Hospital Blood Bank,Private,"D.No.1-100/1/CCH, Nallagandla Village, Serilingampally Mandal",Serilingampally,17.470667,78.311308,"040 67191919, 040-67192580 Extn: 2581/2582, ",YES,24x7,False,real
+BNK0141,Indian Red Cross Society Blood Bank,Charity,"Govt. Community Health Centre, Vikarabad, Ranga Reddy",Vikarabad,17.33643,77.904848,08416 252227,NO,24x7,False,real
+BNK0142,"Indian Red Cross Society, Blood Bank",Charity,"Opp: Dist. Collectorate, Subedari,Hanamkonda.",Hanumakonda,18.005635,79.557155,0870 2456765,YES,24x7,False,real
+BNK0143,Indian Red Cross Society Blood Bank RCH-II ( Jangaon),Government,"Sub Divisional Branch, 1st Floor, Area Hospital Premises, Janagaon, Warangal",Janagoan,17.721054,79.160411,,,24x7,False,real
+BNK0144,Government Mahatma Gandhi Memorial Hospital Blood Bank,Government,"MGM  Hospital Blood Bank, 1st Floor, O.P.Block, MGM. Hospital, Warangal",Warangal,17.990313,79.592843,,NO,24x7,False,real
+BNK0145,Warangal Institute of Medical Sciences Blood Bank,Private,"D.No 7/45/7, Thimmapur, Hunter Road, Warangal",Warangal,0.0,0.0,,,,False,real
+BNK0146,Saint Anns Hospital Blood Bank,Private,FATHIMANAGAR NIT (POST) WARANGAL DT. TELANGANA STATE,Warangal,17.981693,79.52627,,NO,12 HRS,False,real
+BNK0147,Singareni Collieries Company Limited Area Hospital Blood Bank,Government,"Bhupalpalli, Warangal",Warangal,18.400965,79.852782,08713 248104,NO,24x7,False,real
+BNK0148,Mother Voluntary Blood Bank,Charity,"MAS (Multipurpose Amicable Social Services Society), D.No.11-26-231, 1st Floor, Opp: MGM Hospital, Warangal",Warangal,18.000637,79.585628,,YES,24x7,False,real
+BNK0149,Kakatiya Voluntary Blood Bank (A Unit of Life Care Medical and Educational Society),Charity,"Telengana Bhavan, Opposite Alankar Main Road, Hanumakonda, Warangal",Warangal,18.003153,79.579693,0870-2448243,NO,24x7,False,real

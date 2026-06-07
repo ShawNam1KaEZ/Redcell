@@ -1,0 +1,22 @@
+facility_id,name,type,city,latitude,longitude,bootstrap,source,has_own_bank,processing_capability_irradiate,processing_capability_wash,daily_transfusion_capacity,associated_bank_id
+FAC0001,Chaderghat Clinic 1,clinic,Hyderabad,17.395673,78.462427,True,bootstrap,False,False,True,23,BNK0057
+FAC0002,Chaderghat Hospital 2,hospital,Hyderabad,17.40625,78.457142,True,bootstrap,True,True,False,32,BNK0047
+FAC0003,Charminar Clinic 3,clinic,Hyderabad,17.39958,78.475614,True,bootstrap,False,True,True,38,BNK0040
+FAC0004,Charminar Hospital 4,hospital,Hyderabad,17.374634,78.476084,True,bootstrap,False,False,True,49,BNK0023
+FAC0005,Secunderabad Clinic 5,clinic,Hyderabad,17.423854,78.484678,True,bootstrap,False,False,False,13,BNK0061
+FAC0006,Secunderabad Hospital 6,hospital,Hyderabad,17.414519,78.481997,True,bootstrap,True,False,False,31,BNK0020
+FAC0007,Mehdipatnam Clinic 7,clinic,Hyderabad,17.376516,78.469208,True,bootstrap,False,False,False,16,BNK0023
+FAC0008,Mehdipatnam Hospital 8,hospital,Hyderabad,17.366839,78.476883,True,bootstrap,False,True,True,24,BNK0034
+FAC0009,Hitec City Clinic 9,clinic,Hyderabad,17.441469,78.409984,True,bootstrap,False,False,False,23,BNK0042
+FAC0010,Hitec City Hospital 10,hospital,Hyderabad,17.444871,78.400332,True,bootstrap,False,False,False,35,BNK0042
+FAC0011,LB Nagar Clinic 11,clinic,Hyderabad,17.385627,78.526558,True,bootstrap,False,True,True,32,BNK0128
+FAC0012,LB Nagar Hospital 12,hospital,Hyderabad,17.384909,78.519066,True,bootstrap,False,False,False,38,BNK0028
+FAC0013,Uppal Clinic 13,clinic,Hyderabad,17.426748,78.499783,True,bootstrap,False,False,False,38,BNK0060
+FAC0014,Uppal Hospital 14,hospital,Hyderabad,17.450942,78.500208,True,bootstrap,False,True,True,15,BNK0066
+FAC0015,Tolichowki Clinic 15,clinic,Hyderabad,17.368347,78.462851,True,bootstrap,False,False,False,33,BNK0054
+FAC0016,Tolichowki Hospital 16,hospital,Hyderabad,17.382922,78.439775,True,bootstrap,True,False,True,35,BNK0050
+FAC0017,Chaderghat Day Transfusion Center 17,day-transfusion-center,Hyderabad,17.401093,78.457846,True,bootstrap,False,False,False,12,BNK0056
+FAC0018,Charminar Day Transfusion Center 18,day-transfusion-center,Hyderabad,17.382138,78.472204,True,bootstrap,False,False,False,16,BNK0055
+FAC0019,Secunderabad Day Transfusion Center 19,day-transfusion-center,Hyderabad,17.432265,78.467414,True,bootstrap,False,False,False,12,BNK0039
+FAC0020,Mehdipatnam Day Transfusion Center 20,day-transfusion-center,Hyderabad,17.370124,78.469319,True,bootstrap,False,False,False,11,BNK0023
+FAC0021,Hitec City Day Transfusion Center 21,day-transfusion-center,Hyderabad,17.451001,78.389459,True,bootstrap,False,False,False,14,BNK0042

@@ -1,0 +1,154 @@
+{
+  "donor_id": {
+    "real": 4439,
+    "synth": 0
+  },
+  "abo": {
+    "real": 4334,
+    "synth": 105
+  },
+  "rhd": {
+    "real": 4334,
+    "synth": 105
+  },
+  "sex": {
+    "real": 2089,
+    "synth": 2350
+  },
+  "latitude": {
+    "real": 4439,
+    "synth": 0
+  },
+  "longitude": {
+    "real": 4439,
+    "synth": 0
+  },
+  "donor_type": {
+    "real": 4439,
+    "synth": 0
+  },
+  "donor_subtype": {
+    "real": 4439,
+    "synth": 0
+  },
+  "eligibility_status": {
+    "real": 4439,
+    "synth": 0
+  },
+  "last_donation_date": {
+    "real": 1587,
+    "synth": 0
+  },
+  "next_eligible_date": {
+    "real": 1587,
+    "synth": 0
+  },
+  "donation_count": {
+    "real": 4439,
+    "synth": 0
+  },
+  "active_status": {
+    "real": 4439,
+    "synth": 0
+  },
+  "registration_date": {
+    "real": 4437,
+    "synth": 0
+  },
+  "source": {
+    "real": 4439,
+    "synth": 0
+  },
+  "home_bank_id": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_C": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_c": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_E": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_e": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_K": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_k": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_Jka": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_Jkb": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_Fya": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_Fyb": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_M": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_N": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_S": {
+    "real": 0,
+    "synth": 4439
+  },
+  "phenotype_s": {
+    "real": 0,
+    "synth": 4439
+  },
+  "is_typed": {
+    "real": 0,
+    "synth": 4439
+  },
+  "rare_phenotype_flag": {
+    "real": 0,
+    "synth": 4439
+  },
+  "hbs_status": {
+    "real": 0,
+    "synth": 4439
+  },
+  "cmv_status": {
+    "real": 0,
+    "synth": 4439
+  },
+  "consent_to_recall": {
+    "real": 0,
+    "synth": 4439
+  },
+  "is_synthetic": {
+    "real": 0,
+    "synth": 4439
+  },
+  "display_latitude": {
+    "real": 0,
+    "synth": 4439
+  },
+  "display_longitude": {
+    "real": 0,
+    "synth": 4439
+  }
+}
