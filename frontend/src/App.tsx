@@ -75,16 +75,6 @@ interface MatchResult {
   excluded: Array<{ bag_id: string; donor_id: string; reason: string }>;
 }
 
-interface ForecastEntry {
-  initial_stock: number;
-  days_to_depletion: number;
-  shortage_severity: 'CRITICAL' | 'WARNING' | 'STABLE';
-}
-
-interface ForecastMap {
-  [bankId: string]: { [bloodType: string]: ForecastEntry };
-}
-
 interface LogEntry {
   id: number;
   timestamp: string;
@@ -182,15 +172,13 @@ export default function App() {
   const [matchResult, setMatchResult] = useState<MatchResult | null>(null);
   const [matchLoading, setMatchLoading] = useState(false);
 
-  // Forecast
-  const [forecastData, setForecastData] = useState<ForecastMap>({});
-
   // Logs
   const [logs, setLogs] = useState<LogEntry[]>([]);
 
   // UI
   const [notification, setNotification] = useState<string | null>(null);
   const [resetting, setResetting] = useState(false);
+  const [aiMessages, setAiMessages] = useState<string[]>([]);
 
   // Donate form (collapsed)
   const [donorIdInput, setDonorIdInput] = useState('');
@@ -239,13 +227,6 @@ export default function App() {
     try {
       const res = await fetch(`${API_BASE}/api/logs`);
       setLogs(await res.json());
-    } catch {}
-  }, []);
-
-  const fetchForecast = useCallback(async () => {
-    try {
-      const res = await fetch(`${API_BASE}/api/forecast`);
-      setForecastData(await res.json());
     } catch {}
   }, []);
 
@@ -337,7 +318,11 @@ export default function App() {
         showNotification(`Issue failed: ${err.detail ?? res.statusText}`);
         return;
       }
+      const data = await res.json() as { status: string; bag_id: string; patient_id: string; ai_summary?: string };
       showNotification(`Issued ${bagId} → ${pid}`);
+      if (data.ai_summary) {
+        setAiMessages(prev => [data.ai_summary!, ...prev]);
+      }
       // Re-trigger the primary data loaders to update the map canvas and sidebar live
       await fetchInventory();
       await fetchMapData();
@@ -381,10 +366,9 @@ export default function App() {
     fetchInventory();
     fetchMapData();
     fetchLogs();
-    fetchForecast();
     fetchPatients();
     fetchDonors();
-  }, [fetchInventory, fetchMapData, fetchLogs, fetchForecast, fetchPatients, fetchDonors]);
+  }, [fetchInventory, fetchMapData, fetchLogs, fetchPatients, fetchDonors]);
 
   useEffect(() => {
     const id = setInterval(fetchLogs, 5000);
@@ -400,20 +384,6 @@ export default function App() {
   }, [selectedPatient, fetchMatch]);
 
   // ── Derived data ──────────────────────────────────────────────────────────────
-
-  const criticalAlerts = useMemo(() => {
-    return Object.entries(forecastData)
-      .flatMap(([bankId, btMap]) =>
-        Object.entries(btMap)
-          .filter(([, info]) =>
-            (info.shortage_severity === 'CRITICAL' || info.shortage_severity === 'WARNING') &&
-            info.initial_stock > 0
-          )
-          .map(([bloodType, info]) => ({ bankId, bloodType, ...info }))
-      )
-      .sort((a, b) => a.days_to_depletion - b.days_to_depletion)
-      .slice(0, 6);
-  }, [forecastData]);
 
   const filteredPatients = useMemo(() => {
     const list = Array.isArray(patientsList) ? patientsList : [];
@@ -960,6 +930,7 @@ export default function App() {
                      matchResult.G3.length === 0 && (
                       <div className="empty-msg">No compatible units found.</div>
                     )}
+
                   </>
                 )}
               </div>
@@ -973,25 +944,6 @@ export default function App() {
             </div>
           )}
 
-          {/* Critical stock alerts */}
-          {criticalAlerts.length > 0 && (
-            <details className="alerts-accordion">
-              <summary className="alerts-summary">
-                Critical Stock Alerts
-              </summary>
-              <div className="alerts-content-list">
-                {criticalAlerts.map(r => (
-                  <div key={`${r.bankId}-${r.bloodType}`} className="fa-row">
-                    <span className="fa-sev">CRIT</span>
-                    <span className="fa-bt">{r.bloodType}</span>
-                    <span className="fa-bank">{r.bankId}</span>
-                    <span className="fa-days">{r.days_to_depletion}d left</span>
-                  </div>
-                ))}
-              </div>
-            </details>
-          )}
-
           {/* Activity ticker */}
           <div className="ticker">
             <div className="ticker-hdr">
@@ -999,7 +951,25 @@ export default function App() {
               Live Activity
             </div>
             <div className="ticker-body" ref={logBodyRef}>
-              {logs.length === 0
+              {aiMessages.map((msg, i) => (
+                <div
+                  key={`ai-${i}`}
+                  style={{
+                    borderLeft: '2px solid #10b981',
+                    background: 'rgba(240,253,244,0.5)',
+                    padding: '5px 8px',
+                    marginBottom: '4px',
+                    borderRadius: '0 4px 4px 0',
+                    fontSize: '11px',
+                    color: '#1e3a2e',
+                    lineHeight: 1.45,
+                  }}
+                >
+                  <span style={{ fontWeight: 600, color: '#059669', marginRight: '5px', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>AI</span>
+                  {msg}
+                </div>
+              ))}
+              {logs.length === 0 && aiMessages.length === 0
                 ? <div className="empty-msg">No activity yet.</div>
                 : logs.map(entry => (
                   <div key={entry.id} className="te">

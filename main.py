@@ -130,6 +130,34 @@ def match_patient(patient_id: str):
         raise HTTPException(status_code=500, detail=str(exc))
 
 
+@app.get("/api/match/{patient_id}/explain")
+def explain_match_endpoint(patient_id: str):
+    """
+    AI-generated clinician rationale for a patient's match results.
+    Returns: { patient_id, explanation }
+    """
+    try:
+        from engine import match as _match
+        from engine.ai import explain_match
+
+        patients_df = pd.read_csv(Path(DATA_DIR) / "patients.csv", dtype=str)
+        row = patients_df[patients_df["patient_id"] == patient_id]
+        if row.empty:
+            raise HTTPException(status_code=404, detail=f"Patient {patient_id} not found")
+        patient = row.iloc[0].fillna("").to_dict()
+
+        match_result = _match.match(patient_id)
+        explanation = explain_match(patient, match_result)
+        return {"patient_id": patient_id, "explanation": explanation}
+    except HTTPException:
+        raise
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+
 @app.get("/api/forecast")
 def get_forecast():
     """
@@ -151,8 +179,37 @@ async def treat(req: TreatRequest):
     """
     try:
         from engine import state as _state
+        from engine.ai import generate_issue_summary
+
         _state.issue_bag_to_patient(req.bag_id, req.patient_id)
-        return {"status": "issued", "bag_id": req.bag_id, "patient_id": req.patient_id}
+
+        ai_summary = ""
+        try:
+            conn = _state.get_conn()
+            bag_row = conn.execute(
+                "SELECT * FROM bags WHERE bag_id = ?", (req.bag_id,)
+            ).fetchone()
+            bag = dict(bag_row) if bag_row else {"bag_id": req.bag_id}
+
+            patients_df = pd.read_csv(Path(DATA_DIR) / "patients.csv", dtype=str)
+            pat_row = patients_df[patients_df["patient_id"] == req.patient_id]
+            patient = pat_row.iloc[0].fillna("").to_dict() if not pat_row.empty else {"patient_id": req.patient_id}
+
+            banks_df = pd.read_csv(Path(DATA_DIR) / "banks.csv", dtype=str)
+            loc_id = bag.get("current_location_id", "")
+            bank_row = banks_df[banks_df["bank_id"] == loc_id] if loc_id else pd.DataFrame()
+            bank_name = str(bank_row.iloc[0]["name"]) if not bank_row.empty else (loc_id or "Unknown")
+
+            ai_summary = generate_issue_summary(patient, bag, bank_name)
+        except Exception:
+            pass
+
+        return {
+            "status": "issued",
+            "bag_id": req.bag_id,
+            "patient_id": req.patient_id,
+            "ai_summary": ai_summary,
+        }
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
     except Exception as exc:
