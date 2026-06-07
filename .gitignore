@@ -1,28 +1,46 @@
-# === Python Ignore Rules ===
+# === Python ===
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
 .pytest_cache/
 .Python
 env/
 venv/
 .venv/
 pip-log.txt
+*.egg-info/
+dist/
+build/
 
-# === React / Node Ignore Rules ===
-node_modules/
-/dist
-/build
-.eslintcache
+# === Environment / Secrets ===
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+*.pem
+*.key
+*.p12
+credentials.json
+secrets.json
 
-# === IDE & OS Cache ===
+# === HemoGrid simulation state (mutable, auto-recreated on startup) ===
+data/working_sim.db
+
+# === React / Node ===
+node_modules/
+frontend/dist/
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === IDE & OS ===
 .DS_Store
 .vscode/
+.idea/
+Thumbs.db
 
 # === Claude Code ===
 .claude/settings.local.json

@@ -1,8 +1,10 @@
 {
-  "name": "frontend",
+  "name": "hemogrid-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "description": "React dashboard for HemoGrid — extended-phenotype blood matching for thalassemia patients",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
